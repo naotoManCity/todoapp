@@ -22,4 +22,16 @@ class PostController extends Controller
 
         return redirect()->route('todo.create');
     }
+
+    public function edit(Post $post)
+    {
+        return view('todo.edit', compact('post'));
+    }
+
+    public function update(PostRequest $request, Post $post)
+    {
+        Post::where('id', $post->id)->update(['content' => $request->content]);
+
+        return redirect()->route('todo.create');
+    }
 }

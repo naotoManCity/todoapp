@@ -1,4 +1,3 @@
-
 <h1>ToDoアプリ</h1>
 <form action="{{ route('todo.store') }}" method="post">
     @csrf
@@ -9,6 +8,6 @@
 
 @foreach ($posts as $post)
     {{ $post->content }}
-    <a href="{{ route('todo.create') }}" class="text-blue-500">編集</a>
+    <a href="{{ route('todo.edit', ['post' => $post->id]) }}" class="text-blue-500">編集</a>
     <a href="{{ route('todo.create') }}" class="text-red-500">削除</a>
 @endforeach

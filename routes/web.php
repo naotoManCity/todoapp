@@ -21,6 +21,8 @@ Route::get('/', function () {
 
 Route::get('/create', [PostController::class, 'create'])->name('todo.create');
 Route::post('/store', [PostController::class, 'store'])->name('todo.store');
+Route::get('/{post}/edit', [PostController::class, 'edit'])->name('todo.edit');
+Route::post('/{post}/update', [PostController::class, 'update'])->name('todo.update');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
