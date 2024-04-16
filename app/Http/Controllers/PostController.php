@@ -34,4 +34,11 @@ class PostController extends Controller
 
         return redirect()->route('todo.create');
     }
+
+    public function destroy(Post $post)
+    {
+        Post::destroy($post->id);
+
+        return redirect()->route('todo.create');
+    }
 }

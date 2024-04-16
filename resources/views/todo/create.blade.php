@@ -8,6 +8,11 @@
 
 @foreach ($posts as $post)
     {{ $post->content }}
-    <a href="{{ route('todo.edit', ['post' => $post->id]) }}" class="text-blue-500">編集</a>
-    <a href="{{ route('todo.create') }}" class="text-red-500">削除</a>
+    <form action="{{ route('todo.edit', ['post' => $post->id]) }}" method="get">
+        <button class="text-blue-500">編集</button>
+    </form>
+    <form action="{{ route('todo.destroy', ['post' => $post->id]) }}" method="post">
+        @csrf
+        <button class="text-red-500">削除</button>
+    </form>
 @endforeach
